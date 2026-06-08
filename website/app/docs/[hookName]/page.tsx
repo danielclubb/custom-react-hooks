@@ -15,6 +15,25 @@ export async function generateStaticParams() {
   }));
 }
 
+function getHookCode(hookName: string): string {
+  switch (hookName) {
+    case "useArray":
+      return fs.readFileSync(path.join(process.cwd(), "../hooks/useArray.tsx"), "utf8");
+    case "useBoolean":
+      return fs.readFileSync(path.join(process.cwd(), "../hooks/useBoolean.tsx"), "utf8");
+    case "useCounter":
+      return fs.readFileSync(path.join(process.cwd(), "../hooks/useCounter.tsx"), "utf8");
+    case "useCycle":
+      return fs.readFileSync(path.join(process.cwd(), "../hooks/useCycle.tsx"), "utf8");
+    case "useDefault":
+      return fs.readFileSync(path.join(process.cwd(), "../hooks/useDefault.tsx"), "utf8");
+    case "useQuery":
+      return fs.readFileSync(path.join(process.cwd(), "../hooks/useQuery.tsx"), "utf8");
+    default:
+      throw new Error(`Unknown hook: ${hookName}`);
+  }
+}
+
 export default async function HookPage({ params }: PageProps) {
   const { hookName } = await params;
 
@@ -24,15 +43,13 @@ export default async function HookPage({ params }: PageProps) {
     notFound();
   }
 
-  const hooksDir = path.join(process.cwd(), "../hooks");
-  const filePath = path.join(hooksDir, `${hookName}.tsx`);
-
   let code = "";
   try {
-    code = fs.readFileSync(filePath, "utf8");
+    code = getHookCode(hookName);
   } catch (error) {
     notFound();
   }
+
 
 
   return (
