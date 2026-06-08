@@ -10,6 +10,18 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
+  console.log("--- Vercel Build Diagnostic ---");
+  console.log("process.cwd():", process.cwd());
+  try {
+    const parentDir = path.join(process.cwd(), "..");
+    console.log("Parent directory contents:", fs.readdirSync(parentDir));
+    const hooksDir = path.join(process.cwd(), "../hooks");
+    console.log("Hooks directory contents:", fs.readdirSync(hooksDir));
+  } catch (err: any) {
+    console.error("Diagnostic error:", err.message);
+  }
+  console.log("--------------------------------");
+
   return hooksConfig.map((hook) => ({
     hookName: hook.name,
   }));
