@@ -2,11 +2,9 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    outputFileTracingRoot: path.join(process.cwd(), "../"),
-    outputFileTracingIncludes: {
-      "/docs/[hookName]": ["../hooks/**/*"],
-    },
+  outputFileTracingRoot: path.join(process.cwd(), "../"),
+  outputFileTracingIncludes: {
+    "/docs/[hookName]": ["../hooks/**/*"],
   },
 };
 
