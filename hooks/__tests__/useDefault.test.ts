@@ -7,7 +7,7 @@ describe('useDefault', () => {
         const defaultValue = 1;
         const initialValue = 2;
 
-        const {result} = renderHook(() => useDefault(defaultValue, initialValue));
+        const { result } = renderHook(() => useDefault(defaultValue, initialValue));
 
         expect(result.current[0]).toBe(initialValue);
     });
@@ -16,7 +16,7 @@ describe('useDefault', () => {
         const defaultValue = 1;
         const initialValue = 2;
 
-        const {result} = renderHook(() => useDefault(defaultValue, initialValue));
+        const { result } = renderHook(() => useDefault(defaultValue, initialValue));
 
         act(() => {
             result.current[1]('test');

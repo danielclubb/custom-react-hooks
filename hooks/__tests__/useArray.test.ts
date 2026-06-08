@@ -1,18 +1,18 @@
-import {act, renderHook} from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
 
 import useArray from '../useArray';
 
 describe('useArray', () => {
     test('default value', () => {
         const defaultValue = ['test'];
-        const {result} = renderHook(() => useArray(defaultValue));
+        const { result } = renderHook(() => useArray(defaultValue));
 
         expect(result.current.array).toEqual(defaultValue);
     });
 
     test('set method', () => {
         const defaultValue = ['test'];
-        const {result} = renderHook(() => useArray(defaultValue));
+        const { result } = renderHook(() => useArray(defaultValue));
 
         expect(result.current.array).toEqual(defaultValue);
 
@@ -26,7 +26,7 @@ describe('useArray', () => {
     });
 
     test('push method', () => {
-        const {result} = renderHook(() => useArray([]));
+        const { result } = renderHook(() => useArray([]));
 
         expect(result.current.array).toEqual([]);
 
@@ -40,7 +40,7 @@ describe('useArray', () => {
     test('remove method', () => {
         const defaultValue = ['this', 'is', 'a', 'test'];
 
-        const {result} = renderHook(() => useArray(defaultValue));
+        const { result } = renderHook(() => useArray(defaultValue));
 
         act(() => {
             result.current.remove(1);
@@ -54,7 +54,7 @@ describe('useArray', () => {
 
         const predicate = (item: number) => item > 3;
 
-        const {result} = renderHook(() => useArray(defaultValue));
+        const { result } = renderHook(() => useArray(defaultValue));
 
         act(() => {
             result.current.filter(predicate);
@@ -66,7 +66,7 @@ describe('useArray', () => {
     test('update method', () => {
         const defaultValue = ['this', 'is', 'a', 'test'];
 
-        const {result} = renderHook(() => useArray(defaultValue));
+        const { result } = renderHook(() => useArray(defaultValue));
 
         act(() => {
             result.current.update(3, 'good');
@@ -78,7 +78,7 @@ describe('useArray', () => {
     test('clear method', () => {
         const defaultValue = ['this', 'is', 'a', 'test'];
 
-        const {result} = renderHook(() => useArray(defaultValue));
+        const { result } = renderHook(() => useArray(defaultValue));
 
         act(() => {
             result.current.clear();

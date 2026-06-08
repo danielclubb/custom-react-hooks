@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react';
+import { useState, useCallback } from 'react';
 
 interface Output {
     count: number;
@@ -8,7 +8,7 @@ interface Output {
     setCount: (value: number) => void;
 }
 
-export default function useCounter(initialValue = 0) : Output {
+export default function useCounter(initialValue = 0): Output {
     const [count, setCount] = useState(initialValue);
 
     const increment = useCallback(() => setCount(previous => previous + 1), []);
