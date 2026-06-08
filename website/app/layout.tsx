@@ -32,7 +32,7 @@ export default function RootLayout({
         {children}
 
         {/* link to github with github logo icon in white as svg */}
-        <footer className="flex flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+        <footer className="flex gap-8 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
           <Link href="https://github.com/danielclubb/custom-react-hooks">
             <img
               src="https://img.icons8.com/ios-glyphs/50/ffffff/github.png"
@@ -40,6 +40,11 @@ export default function RootLayout({
               height={50}
               alt="GitHub"
             />
+          </Link>
+
+          {/* link to blog.danielclubb.com */}
+          <Link href="https://blog.danielclubb.com">
+            <span className="text-sm text-zinc-600 dark:text-zinc-400">Blog</span>
           </Link>
         </footer>
       </body>

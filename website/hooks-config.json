@@ -1,32 +1,32 @@
 [
-  {
-    "name": "useArray",
-    "link": "/docs/useArray",
-    "description": "A hook that provides various methods to manipulate an array."
-  },
-  {
-    "name": "useBoolean",
-    "link": "/docs/useBoolean",
-    "description": "A hook that manages a boolean state with helper methods to set it to true or false."
-  },
-  {
-    "name": "useCounter",
-    "link": "/docs/useCounter",
-    "description": "A hook that manages a numeric counter state with increment, decrement, and reset functions."
-  },
-  {
-    "name": "useCycle",
-    "link": "/docs/useCycle",
-    "description": "A hook that cycles through a list of values on each invocation of the cycle function."
-  },
-  {
-    "name": "useDefault",
-    "link": "/docs/useDefault",
-    "description": "A hook that returns a default value if the current state is null or undefined."
-  },
-  {
-    "name": "useQuery",
-    "link": "/docs/useQuery",
-    "description": "A hook that executes an asynchronous function and manages loading, error, and success states."
-  }
+    {
+        "name": "useArray",
+        "link": "/docs/useArray",
+        "description": "A hook that provides various methods to manipulate an array."
+    },
+    {
+        "name": "useBoolean",
+        "link": "/docs/useBoolean",
+        "description": "A hook that manages a boolean state with helper methods to set it to true or false."
+    },
+    {
+        "name": "useCounter",
+        "link": "/docs/useCounter",
+        "description": "A hook that manages a numeric counter state with increment, decrement, and reset functions."
+    },
+    {
+        "name": "useCycle",
+        "link": "/docs/useCycle",
+        "description": "A hook that cycles through a list of values on each invocation of the cycle function."
+    },
+    {
+        "name": "useDefault",
+        "link": "/docs/useDefault",
+        "description": "A hook that returns a default value if the current state is null or undefined."
+    },
+    {
+        "name": "useQuery",
+        "link": "/docs/useQuery",
+        "description": "A hook that executes an asynchronous function and manages loading, error, and success states."
+    }
 ]

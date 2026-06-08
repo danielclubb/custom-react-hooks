@@ -15,39 +15,40 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
           {hooksConfig.map((hook) => (
-            <Link
-              key={hook.name}
-              href={hook.link}
-              className="group block p-5 rounded-xl border border-zinc-200 bg-white hover:border-zinc-400 dark:border-zinc-800 dark:bg-black dark:hover:border-zinc-600 transition-all duration-200"
-            >
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 dark:group-hover:text-white">
-                    {hook.name}
-                  </span>
-                  <svg
-                    className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 dark:text-zinc-600 dark:group-hover:text-zinc-100 transition-colors duration-200"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
+            <li key={hook.name} className="flex">
+              <Link
+                href={hook.link}
+                className="group flex flex-col w-full p-5 rounded-xl border border-zinc-200 bg-white hover:border-zinc-400 dark:border-zinc-800 dark:bg-black dark:hover:border-zinc-600 transition-all duration-200"
+              >
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 dark:group-hover:text-white">
+                      {hook.name}
+                    </span>
+                    <svg
+                      className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 dark:text-zinc-600 dark:group-hover:text-zinc-100 transition-colors duration-200"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    {hook.description}
+                  </p>
                 </div>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  {hook.description}
-                </p>
-              </div>
-            </Link>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </main>
     </div>
   );
