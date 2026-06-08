@@ -18,22 +18,18 @@ export async function generateStaticParams() {
 }
 
 function getHookCode(hookName: string): string {
-  switch (hookName) {
-    case "useArray":
-      return fs.readFileSync(path.join(process.cwd(), "../hooks/useArray.tsx"), "utf8");
-    case "useBoolean":
-      return fs.readFileSync(path.join(process.cwd(), "../hooks/useBoolean.tsx"), "utf8");
-    case "useCounter":
-      return fs.readFileSync(path.join(process.cwd(), "../hooks/useCounter.tsx"), "utf8");
-    case "useCycle":
-      return fs.readFileSync(path.join(process.cwd(), "../hooks/useCycle.tsx"), "utf8");
-    case "useDefault":
-      return fs.readFileSync(path.join(process.cwd(), "../hooks/useDefault.tsx"), "utf8");
-    case "useQuery":
-      return fs.readFileSync(path.join(process.cwd(), "../hooks/useQuery.tsx"), "utf8");
-    default:
-      throw new Error(`Unknown hook: ${hookName}`);
+  let currentDir = process.cwd();
+  for (let i = 0; i < 4; i++) {
+    const possibleHooksDir = path.join(currentDir, "hooks");
+    if (fs.existsSync(possibleHooksDir)) {
+      const filePath = path.join(possibleHooksDir, `${hookName}.tsx`);
+      if (fs.existsSync(filePath)) {
+        return fs.readFileSync(filePath, "utf8");
+      }
+    }
+    currentDir = path.join(currentDir, "..");
   }
+  throw new Error(`Could not find hook file for ${hookName} in any parent directory.`);
 }
 
 export default async function HookPage({ params }: PageProps) {
